@@ -1,0 +1,74 @@
+
+:root {
+  --colour-dark: #2e2e2e;
+  --colour-light: #fefefe;
+  --colour-orange: #e76f51;
+}
+
+.App {
+  overflow: hidden;
+}
+
+.columns {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+@media screen and (min-width: 768px) {
+  .columns {
+    flex-flow: row nowrap;
+    min-height: unset;
+    height: calc(100vh - 80px);
+  }
+}
+
+.App-header {
+  background-color: var(--colour-orange);
+  height: 80px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+  width: 100vw;
+}
+
+.recipeList,
+.ingredientList {
+  width: 100%;
+  min-height: calc((100vh - 80px - 2rem) / 2); /* Account for header and padding. */
+  padding: 1rem 2rem;
+  display: flex;
+  flex-flow: column nowrap;
+}
+
+@media screen and (min-width: 768px) {
+  .recipeList,
+  .ingredientList {
+    width: 50%;
+    min-height: unset;
+    height: calc(100vh - 80px - 2rem); /* Account for header and padding. */
+    overflow-y: scroll;
+  }
+}
+
+.recipeList {
+  background: var(--colour-light);
+  color: var(--colour-dark);
+}
+
+.ingredientList {
+  background: var(--colour-dark);
+  color: var(--colour-light);
+}
+
+.ingredientList:empty {
+  display: none;
+}
+
+.recipeLabel,
+.ingredient {
+  margin: 0.5rem 0;
+}
